@@ -1,0 +1,9 @@
+---
+Name: htmleditorfolder
+---
+HtmlEditorField_Toolbar:
+  extensions:
+    - HtmlEditorFolder_Toolbar
+LeftAndMain:
+  extra_requirements_javascript:
+    - htmleditorfolder/javascript/HtmlEditorFolder.js
