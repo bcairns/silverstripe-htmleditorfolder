@@ -1,5 +1,7 @@
 # SilverStripe HtmlEditorFolder
 
+![Screenshot](https://raw.githubusercontent.com/bcairns/silverstripe-htmleditorfolder/master/screenshot.png)
+
 ## Description
 
 UploadField provides a `setFolderName()` method which allows you to control where files get uploaded to, however HtmlEditorField offers no such capability for files uploaded via the Insert Media dialog; everything winds up in Uploads which can be unwieldy for sites that make heavy usage of HtmlEditorFields with inline images or other files.
