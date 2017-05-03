@@ -1,0 +1,24 @@
+{
+	"name": "bcairns/silverstripe-htmleditorfolder",
+	"description": "Allows you to specify destination folders for files uploaded in HtmlEditorField via the Insert Media button.",
+	"type": "silverstripe-module",
+	"homepage": "http://github.com/bcairns/silverstripe-htmleditorfolder",
+	"keywords": ["silverstripe", "images", "files", "htmleditor", "htmleditorfield", "folder"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Brian Cairns",
+			"email": "bcairns@gmail.com"
+		}
+	],
+	"support": {
+		"issues": "http://github.com/bcairns/silverstripe-htmleditorfolder/issues"
+	},
+	"require": {
+		"silverstripe/framework": ">=3.1.0"
+	},
+	"extra": {
+		"installer-name": "htmleditorfolder"
+	},
+	"target-dir": "htmleditorfolder"
+}
