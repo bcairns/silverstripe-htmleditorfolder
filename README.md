@@ -8,6 +8,8 @@ UploadField provides a `setFolderName()` method which allows you to control wher
 
 HtmlEditorFolder allows for a destination folder to be specified, on a per-page basis (per-field is not currently possible).
 
+In addition to setting the upload destination, this module will also select this as the default folder for the "From CMS" tab.
+
 ## Usage
 
 After installing the module, pages can define a `getHtmlEditorFolder()` method:
