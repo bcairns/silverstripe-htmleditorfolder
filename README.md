@@ -10,6 +10,8 @@ HtmlEditorFolder allows for a destination folder to be specified, on a per-page 
 
 In addition to setting the upload destination, this module will also select this as the default folder for the "From CMS" tab.
 
+Combining this with UploadField's `setFolderName()` and `setDisplayFolderName()` allows for excellent control of default file locations.
+
 ## Usage
 
 After installing the module, pages can define a `getHtmlEditorFolder()` method:
@@ -25,6 +27,13 @@ class Article extends Page
 	
 }
 ```
+
+## What About DataObjects?
+
+This module sets the folder according to the current page that is being edited.  So DataObjects will use the folder set by their parent page.
+
+(Currently untested with non-Page parents, for example ModelAdmin-based editing)
+
 
 ## Special Note
 
