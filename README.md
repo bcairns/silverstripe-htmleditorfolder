@@ -4,11 +4,9 @@
 
 ## Description
 
-UploadField provides a `setFolderName()` method which allows you to control where files get uploaded to, however HtmlEditorField offers no such capability for files uploaded via the Insert Media dialog; everything winds up in Uploads which can be unwieldy for sites that make heavy usage of HtmlEditorFields with inline images or other files.
+UploadField provides `setFolderName()` and `setDisplayFolderName()` methods which allows you to control where files get uploaded to and selected from, however HtmlEditorField offers no such capability for files uploaded via the Insert Media and Link dialogs; everything winds up in Uploads which can be unwieldy for sites that make heavy usage of HtmlEditorFields with inline images or other files.
 
-HtmlEditorFolder allows for a destination folder to be specified, on a per-page basis (per-field is not currently possible).
-
-In addition to setting the upload destination, this module will also select this as the default folder for the "From CMS" tab.
+HtmlEditorFolder allows for a folder to be specified, on a per-page basis (per-field is not currently possible).  This location will be used in both Media and Link dialogs, for both upload destination and default folder when selecting from the CMS. 
 
 Combining this with UploadField's `setFolderName()` and `setDisplayFolderName()` allows for excellent control of default file locations.
 

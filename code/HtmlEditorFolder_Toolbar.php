@@ -31,16 +31,28 @@ class HtmlEditorFolder_Toolbar extends Extension
 	}
 
 	/**
-	 * Update parent folder ID for "From CMS" default folder selection
+	 * Update parent folder ID for "From CMS" default folder selection (media dialog)
 	 * @param $parentID
 	 */
 	function updateAttachParentID(&$parentID)
 	{
-		if(
-			( $folderPath = $this->getCurrentFolder() ) &&
-			( $parentFolder = Folder::find_or_make($folderPath) )
-		){
+		if (
+			($folderPath = $this->getCurrentFolder()) &&
+			($parentFolder = Folder::find_or_make($folderPath))
+		) {
 			$parentID = $parentFolder->ID;
+		}
+	}
+
+	/**
+	 * Update the link form, set current folder
+	 * @param $form
+	 */
+	function updateLinkForm($form)
+	{
+		if ($uploadField = $form->Fields()->dataFieldByName('file')) {
+			$uploadField->setFolderName($this->getCurrentFolder());
+			$uploadField->setDisplayFolderName($this->getCurrentFolder());
 		}
 	}
 
