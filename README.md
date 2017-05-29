@@ -30,7 +30,7 @@ This will be used as the location for all files uploaded/selected via the Insert
 
 ### As Extension
 
-You can define getHtmlEditorFolder() in an extension, for instance to use HtmlEditorFolder with 3rd-party code:
+You can define `getHtmlEditorFolder()` in an extension, for instance to use HtmlEditorFolder with 3rd-party code:
 
 ```
 class BlogPost_Extension extends DataExtension
