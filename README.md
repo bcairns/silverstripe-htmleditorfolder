@@ -6,13 +6,13 @@
 
 UploadField provides `setFolderName()` and `setDisplayFolderName()` methods which allows you to control where files get uploaded to and selected from, however HtmlEditorField offers no such capability for files uploaded via the Insert Media and Link dialogs; everything winds up in Uploads which can be unwieldy for sites that make heavy usage of HtmlEditorFields with inline images or other files.
 
-HtmlEditorFolder allows for a folder to be specified, on a per-page basis (per-field is not currently possible).  This location will be used in both Media and Link dialogs, for both upload destination and default folder when selecting from the CMS. 
+HtmlEditorFolder allows for a folder to be specified, on a per-page/controller basis (per-field is not currently possible).  This location will be used in both Media and Link dialogs, for both upload destination and default folder when selecting from the CMS. 
 
 Combining this with UploadField's `setFolderName()` and `setDisplayFolderName()` allows for excellent management of default file locations for your CMS users.
 
 ## Usage
 
-After installing the module, pages (any descendant of SiteTree) can define a `getHtmlEditorFolder()` method:
+After installing the module, any `Controller` or `SiteTree` descendant (controllers take precedence) can define a `getHtmlEditorFolder()` method:
 
 ```
 class Article extends Page
@@ -30,7 +30,7 @@ This will be used as the location for all files uploaded/selected via the Insert
 
 ### As Extension
 
-You can define `getHtmlEditorFolder()` in an extension, for instance to use HtmlEditorFolder with 3rd-party code:
+You can define `getHtmlEditorFolder()` in extensions, for instance to use HtmlEditorFolder with core or 3rd-party code:
 
 ```
 class BlogPost_Extension extends DataExtension
@@ -38,6 +38,14 @@ class BlogPost_Extension extends DataExtension
 	public function getHtmlEditorFolder()
 	{
 		return 'Blog';
+	}
+}
+
+class CMSSettingsController_Extension extends Extension
+{
+	public function getHtmlEditorFolder()
+	{
+		return 'SiteConfig';
 	}
 }
 ```
@@ -48,14 +56,16 @@ And apply it in config.yml:
 BlogPost:
   extensions:
     - BlogPost_Extension
+    
+CMSSettingsController:
+  extensions:
+    - CMSSettingsController_Extension
 ```
 
 
 ### DataObjects
 
-This module sets the folder according to the current page that is being edited.  So DataObjects will use the folder set by their parent page.
-
-(Currently untested with non-Page parents, for example ModelAdmin-based editing)
+This module sets the folder according to the current page or controller.  So DataObjects will use the folder set by their parent page or controller.
 
 
 ## Special Note
