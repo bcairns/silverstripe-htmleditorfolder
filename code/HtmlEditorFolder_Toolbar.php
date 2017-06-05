@@ -13,7 +13,7 @@ class HtmlEditorFolder_Toolbar extends Extension
 	function getCurrentFolder()
 	{
 		$currentPage = $this->owner->controller->currentPage();
-		return $currentPage->hasMethod('getHtmlEditorFolder') ?
+		return ( $currentPage && $currentPage->hasMethod('getHtmlEditorFolder') ) ?
 			$currentPage->getHtmlEditorFolder() :
 			false;
 	}
